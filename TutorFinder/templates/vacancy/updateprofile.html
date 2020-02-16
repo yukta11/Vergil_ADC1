@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %} 
+
+<form method="POST">
+	{% csrf_token %}
+	<input type="text" name="firstname" placeholder="Firstname" value="{{prof.fname}}">
+	<input type="text" name="lastname" placeholder="Lastname" value="{{prof.lname}}">
+	<input type="date" name="date_of_birth" placeholder="Date of Birth" value="{{prof.date_of_birth}}">
+	<input type="text" name="qualification" placeholder="Qualification" value="{{prof.qualifications}}">
+	<input type="text" name="experience" placeholder="Experience" value="{{prof.experience}}">
+	<input type="text" name="salary" placeholder="Salary" value="{{prof.salary}}">
+	<input type="submit" value="update">
+</form>
+
+{% endblock content %} 
