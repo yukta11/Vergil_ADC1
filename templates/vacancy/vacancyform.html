@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %} 
+
+	<form method="POST" enctype="multipart/form-data">
+		{% csrf_token %}
+		<input type="file" name="image"><br>
+		<input type="text" name="firstname" placeholder="firstname"><br>
+		<input type="text" name="lastname" placeholder="lastname"><br>
+		<input type="Date" name="date_of_birth" placeholder="Date Of Birth"><br>
+		<input type="text" name="qualification" placeholder="qualification"><br>
+		<input type="text" name="experience" placeholder="experience"><br>
+		<input type="text" name="salary" placeholder="salary"><br>
+		<input type="submit" name="">
+	</form>
+{% endblock content %} 
