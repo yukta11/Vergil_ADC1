@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div style="margin: 60px">
+
+	{% for professor in professors %}
+		<img src="{{professor.image.url}}" style="width: 350px; height: 350px; padding: 4px; border: 2px solid">
+		<p><b>Name:</b> {{professor.fname}} {{professor.lname}}</p>
+		<p><b>Date Of Birth:</b> {{professor.date_of_birth}}</p>
+		<p><b>Qualification:</b> {{professor.qualifications}}</p>
+		<p><b>Experience:</b> {{professor.experience}}</p>
+		<p><b>Salary:</b> {{professor.salary}}</p>
+
+    	<button style="height: 30px; width: 100px; margin-bottom: 5px;"><a href="{{professor.image.url}}" download="">Download</a></button>
+    	<form action="{% url 'vacancy:deleteprofessor' professor.pk %}" method="POST">
+      	{% csrf_token %}
+      	<button type="submit" style="height: 30px; width: 100px; margin-bottom: 5px;">Delete</button>
+    	</form>
+    	<button style="height: 30px; width: 100px; margin-bottom: 5px;"><a href="{% url 'vacancy:updateprofile' professor.pk %}">Edit</a></button><br>
+    	<button type="submit" style="height: 30px; width: 100px; background-color: #28a745;"><a href="{% url 'vacancy:book' %}">BookTeacher</a></button>
+
+		<br><br><br>
+	{% endfor %}
+
+</div>
+
+{% endblock %}
